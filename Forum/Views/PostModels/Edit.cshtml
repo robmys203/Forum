@@ -1,0 +1,60 @@
+﻿@model Forum.Models.PostModel
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Edit</title>
+</head>
+<body>
+
+<h4>PostModel</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="PostModelID" />
+            <div class="form-group">
+                <label asp-for="PostTemat" class="control-label"></label>
+                <input asp-for="PostTemat" class="form-control" />
+                <span asp-validation-for="PostTemat" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="PostModelCialo" class="control-label"></label>
+                <input asp-for="PostModelCialo" class="form-control" />
+                <span asp-validation-for="PostModelCialo" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Tworca" class="control-label"></label>
+                <input asp-for="Tworca" class="form-control" />
+                <span asp-validation-for="Tworca" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="DataDodania" class="control-label"></label>
+                <input asp-for="DataDodania" class="form-control" />
+                <span asp-validation-for="DataDodania" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="TematID" class="control-label"></label>
+                <input asp-for="TematID" class="form-control" />
+                <span asp-validation-for="TematID" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+</body>
+</html>

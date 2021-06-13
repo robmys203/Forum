@@ -1,0 +1,45 @@
+﻿@model Forum.Models.userRoleModel
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+
+</head>
+<body>
+    <meta name="viewport" content="width=device-width" />
+    <title>Edit</title>
+    <form asp-action="removeRoleFromUser">
+        <div asp-validation-summary="ModelOnly"></div>
+        <input hidden asp-for="userId" />
+        <div>
+            <label asp-for="userName"></label>
+            <input asp-for="userName" />
+            <span asp-validation-for="userName"></span>
+        </div>
+        <div>
+            <p> Aktualne role urzytkownika : </p>
+            <p>@Html.DisplayFor(model => model.userRoles) </p>
+        </div>
+        <div>
+            <select asp-for="userRoleToDelete">
+                @foreach ( var i in Model.userRoles)
+                {
+
+                    <option value=@i>@i</option>
+                }
+
+            </select>
+            <span asp-validation-for="userRoleToDelete"></span>
+        </div>
+
+        
+        <div>
+            <input type="submit" value="save" />
+        </div>
+    </form>
+</body>
+</html>

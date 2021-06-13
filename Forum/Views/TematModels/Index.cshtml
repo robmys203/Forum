@@ -1,0 +1,63 @@
+﻿@model IEnumerable<Forum.Models.TematModel>
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+    
+</head>
+<body style="background-color:silver">
+<p style="text-align :center">
+    <a  asp-action="Create">Create New</a>
+</p>
+<table cellspacing="0" cellpadding="0" border="1" style="width: 100%;" bgcolor="gray" >
+    <thead>
+        <tr>
+            <th style="width: 25%;">
+                @Html.DisplayNameFor(model => model.Tworca)
+                <br />
+               
+            </th>
+            <th hidden>
+                @Html.DisplayNameFor(model => model.TematImg)
+            </th>
+            <th style="width:50%">
+                @Html.DisplayNameFor(model => model.Temat)   
+            </th>
+            
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td style="width: 25%;">
+                <p> Dodał :  @Html.DisplayFor(modelItem => item.Tworca)</p>
+                <br />
+                <p>Dodano Dnia : @Html.DisplayFor(modelItem => item.DataDodania) </p> 
+            </td>
+            <td hidden>
+                @Html.DisplayFor(modelItem => item.TematImg)
+            </td>
+            <td style="50%;">
+                @Html.DisplayFor(modelItem => item.Temat)
+            </td>
+            
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.TematID">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.TematID">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.TematID">Delete</a>
+                <a asp-action="Index" asp-controller="PostModels" asp-route-id="@item.TematID">Czytaj</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
+</body>
+</html>

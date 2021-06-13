@@ -1,0 +1,55 @@
+﻿@model Forum.Models.PostModel
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Create</title>
+</head>
+<body style="background-color :silver">
+
+    <h4 style="text-align:center">Napisz Komentarz</h4>
+    <hr />
+    <div style="text-align:center">
+        <div class="col-md-4">
+            <form asp-action="Create">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <div hidden class="form-group">
+                    <label asp-for="PostTemat" class="control-label"></label>
+                    <input asp-for="PostTemat" class="form-control" />
+                    <span asp-validation-for="PostTemat" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="PostModelCialo" class="control-label">Treść </label>
+                    <br />
+                    <textarea cols="60" rows="30" asp-for="PostModelCialo" class="form-control"> </textarea>
+                    <span asp-validation-for="PostModelCialo" class="text-danger"></span>
+                </div>
+                <div hidden class="form-group">
+                    <label asp-for="Tworca" class="control-label"></label>
+                    <input asp-for="Tworca" value=@User.Identity.Name class="form-control" />
+                    <span asp-validation-for="Tworca" class="text-danger"></span>
+                </div>
+                <div hidden class="form-group">
+                    <label asp-for="TematID" class="control-label"></label>
+                    <input asp-for="TematID" value=@ViewContext.RouteData.Values["id"] class="form-control" />
+                    <span asp-validation-for="TematID" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <input type="submit" value="Create" class="btn btn-primary" />
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div>
+        <a asp-action="Index">Back to List</a>
+    </div>
+
+</body>
+</html>

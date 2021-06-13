@@ -1,0 +1,38 @@
+﻿@model Microsoft.AspNetCore.Identity.IdentityUser
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+  
+</head>
+<body>
+    <meta name="viewport" content="width=device-width" />
+    <title>Edit</title>
+    <form asp-action="Edit">
+        <div asp-validation-summary="ModelOnly"></div>
+        <input hidden asp-for="Id" />
+        <div>
+            <label asp-for="Email"></label>
+            <input asp-for="Email" />
+            <span asp-validation-for="Email"></span>
+        </div>
+        <div>
+            <label asp-for="UserName"></label>
+            <input asp-for="UserName" />
+            <span asp-validation-for="UserName"></span>
+        </div>
+        <div>
+            <label asp-for="PhoneNumber"></label>
+            <input asp-for="PhoneNumber" />
+            <span asp-validation-for="PhoneNumber"></span>
+        </div>
+        <div>
+            <input type="submit" value="save" />
+        </div>
+    </form>
+</body>
+</html>

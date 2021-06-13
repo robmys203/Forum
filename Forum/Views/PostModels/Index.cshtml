@@ -1,0 +1,57 @@
+﻿@model IEnumerable<Forum.Models.PostModel>
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+</head>
+<body style="background-color :silver">
+
+    <table cellspacing="0" cellpadding="0" border="1" style="width: 100%;" bgcolor="gray">
+        <thead>
+            <tr>
+                <th style="width: 25%;">
+                    @Html.DisplayNameFor(model => model.Tworca)
+
+                </th>
+                <th style="width:auto">
+                    <p>Temat</p>
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td style="width : 25%;">
+                        @Html.DisplayFor(modelItem => item.Tworca)
+                        <br />
+                        @Html.DisplayFor(modelItem => item.DataDodania)
+                    </td>
+                    <td style="width : auto;">
+                        @Html.DisplayFor(modelItem => item.PostModelCialo)
+                    </td>
+                    @if (User.IsInRole("User")) {
+                    <td>
+                        <a asp-action="Edit" asp-route-id="@item.PostModelID">Edit</a> |
+                        <a asp-action="Details" asp-route-id="@item.PostModelID">Details</a> |
+                        <a asp-action="Delete" asp-route-id="@item.PostModelID">Delete</a>
+                    </td>
+                    }
+                </tr>
+            }
+        </tbody>
+
+    </table>
+    <p style="text-align:center">
+        <a asp-action="Create" asp-route-id=@ViewContext.RouteData.Values["id"]>Odpowiedz</a>
+    </p>
+</body>
+</html>
